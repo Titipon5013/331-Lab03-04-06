@@ -1,19 +1,13 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import axios from 'axios'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
-const user = ref(null)
+const router = useRouter()
+const user = route.params.user
 
-onMounted(async () => {
-  try {
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/users/${route.params.id}`)
-    user.value = res.data
-  } catch (error) {
-    user.value = { error: 'User not found' }
-  }
-})
+function goToEdit() {
+  router.push({ name: 'EditPassenger', params: { id: route.params.id, name: user.name, email: user.email, phone: user.phone } })
+}
 </script>
 
 <template>
@@ -24,6 +18,7 @@ onMounted(async () => {
         <h2>{{ user.name }}</h2>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <button class="edit-btn" @click="goToEdit">Edit</button>
       </div>
     </div>
     <RouterLink to="/" class="back-btn">Back to Home</RouterLink>
@@ -54,6 +49,20 @@ onMounted(async () => {
   color: #e74c3c;
   font-weight: bold;
   margin-bottom: 12px;
+}
+.edit-btn {
+  margin-top: 16px;
+  padding: 8px 20px;
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.edit-btn:hover {
+  background: #219150;
 }
 .back-btn {
   display: inline-block;

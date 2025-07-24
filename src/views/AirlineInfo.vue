@@ -1,19 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import axios from 'axios'
 import { useRoute } from 'vue-router'
-
-const user = ref(null)
 const route = useRoute()
-
-onMounted(async () => {
-  try {
-    const res = await axios.get(`https://jsonplaceholder.typicode.com/users/${route.params.id}`)
-    user.value = res.data
-  } catch (error) {
-    user.value = { error: 'Company info not found' }
-  }
-})
+const user = route.params.user
 </script>
 
 <template>
