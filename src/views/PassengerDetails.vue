@@ -4,7 +4,6 @@
     <RouterLink :to="`/passenger/${$route.params.id}`">Info</RouterLink> |
     <RouterLink :to="`/passenger/${$route.params.id}/airline`">Company</RouterLink>
     <RouterView />
-    <RouterLink to="/" class="back-btn">Back to Home</RouterLink>
   </div>
 </template>
 

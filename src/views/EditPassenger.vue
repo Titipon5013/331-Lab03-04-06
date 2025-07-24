@@ -42,6 +42,44 @@ const editEvent = () => {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+.edit-passenger label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+.edit-passenger input[type="text"],
+.edit-passenger input[type="email"],
+.edit-passenger input[type="tel"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-top: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.edit-passenger input:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+.edit-passenger button[type="submit"] {
+  margin-top: 12px;
+  padding: 10px 28px;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(26,115,232,0.08);
+}
+.edit-passenger button[type="submit"]:hover {
+  background: #1760c4;
+}
 @keyframes yelloFade {
   from {
     background-color: yellow;
